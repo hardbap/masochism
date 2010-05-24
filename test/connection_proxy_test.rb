@@ -11,8 +11,8 @@ module ActiveReload
 
     def teardown
       ActiveRecord::Base.remove_connection
-      FileUtils.rm_f(Rails.root + '/' + MASTER)
-      FileUtils.rm_f(Rails.root + '/' + SLAVE)
+      FileUtils.rm_f(Rails.root.join(MASTER))
+      FileUtils.rm_f(Rails.root.join(SLAVE))
     end
 
     def test_slave_defined_returns_false_when_slave_not_defined
